@@ -25,7 +25,7 @@ function SideBar() {
             Front-end Challenge!
           </Heading>
           <Text textAlign="center" fontSize="lg" px={20}>
-            This is teh design that you need to code up and impress us.
+            This is the design that you need to code up and impress us.
           </Text>
         </Stack>
         <Box p={10}>
