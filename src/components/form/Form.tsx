@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FormInupts } from "../models/FormModel";
+import GenderRadioButton from "../gender-radio-button/GenderRadioButton";
+import MembershipRadioGroup from "../membership-radio-group/MembershipRadioGroup";
 
 function Form() {
   const {
@@ -64,60 +66,88 @@ function Form() {
               <Stack
                 direction={{ base: "column", lg: "row" }}
                 mb="3"
-                spacing="1.475em"
+                spacing={"1.475em"}
+                justifyContent="space-between"
                 alignItems="center"
               >
-                <FormLabel htmlFor="name">Name</FormLabel>
+                <Box minW="10em">
+                  <FormLabel
+                    htmlFor="name"
+                    textColor={errors.name ? "#ff9200" : "black"}
+                  >
+                    Name
+                  </FormLabel>
+                </Box>
                 <FormControl>
                   <Input
                     id="name"
                     type="text"
+                    variant="filled"
+                    border={errors.name ? "1px solid #ff9200" : "none"}
+                    bgColor="#f5f8f9"
                     placeholder="Kendal Jenner"
                     {...register("name", {
                       required: "name is required!",
                     })}
                   />
                   {errors.name && (
-                    <FormHelperText textAlign="end" color="red.400">
+                    <FormHelperText textAlign="end" color="#ff9200">
                       {errors.name.message}
                     </FormHelperText>
                   )}
                 </FormControl>
               </Stack>
-              <FormControl mb="3">
-                <FormLabel htmlFor="gender">Gender</FormLabel>
-                <Input
-                  id="gender"
-                  type="text"
-                  placeholder="+267 6753 8735"
-                  {...register("gender", {
-                    required: "gender is required!",
-                  })}
-                />
-                {errors.gender && (
-                  <FormHelperText textAlign="center" color="red.400">
-                    {errors.gender.message}
-                  </FormHelperText>
-                )}
-              </FormControl>
               <Stack
                 direction={{ base: "column", lg: "row" }}
                 mb="3"
                 spacing="1.475em"
                 alignItems="center"
               >
-                <FormLabel htmlFor="dateOfBirth">Date of Birth</FormLabel>
+                <Box minW="10em">
+                  <FormLabel
+                    htmlFor="gender"
+                    textColor={errors.gender ? "#ff9200" : "black"}
+                  >
+                    Gender
+                  </FormLabel>
+                </Box>
+                <FormControl>
+                  <GenderRadioButton />
+                  {errors.gender && (
+                    <FormHelperText textAlign="end" color="#ff9200">
+                      {errors.gender.message}
+                    </FormHelperText>
+                  )}
+                </FormControl>
+              </Stack>
+              <Stack
+                direction={{ base: "column", lg: "row" }}
+                mb="3"
+                spacing="1.475em"
+                alignItems="center"
+              >
+                <Box minW="10em">
+                  <FormLabel
+                    htmlFor="dateOfBirth"
+                    textColor={errors.dateOfBirth ? "#ff9200" : "black"}
+                  >
+                    Date of Birth
+                  </FormLabel>
+                </Box>
                 <FormControl>
                   <Input
                     id="dateOfBirth"
                     type="date"
+                    variant="filled"
+                    border={errors.dateOfBirth ? "1px solid #ff9200" : "none"}
+                    bgColor="#f5f8f9"
                     placeholder="01/02/1983"
                     {...register("dateOfBirth", {
-                      required: "Date of birth is required!",
+                      required: "date of birth is required!",
                     })}
                   />
                   {errors.dateOfBirth && (
-                    <FormHelperText textAlign="end" color="red.400">
+                    <FormHelperText textAlign="end" color="#ff9200">
                       {errors.dateOfBirth.message}
                     </FormHelperText>
                   )}
@@ -129,18 +159,32 @@ function Form() {
                 spacing="1.475em"
                 alignItems="center"
               >
-                <FormLabel htmlFor="email">Email</FormLabel>
+                <Box minW="10em">
+                  <FormLabel
+                    htmlFor="email"
+                    textColor={errors.email ? "#ff9200" : "black"}
+                  >
+                    Email
+                  </FormLabel>
+                </Box>
                 <FormControl>
                   <Input
                     id="email"
                     type="text"
+                    variant="filled"
+                    border={errors.email ? "1px solid #ff9200" : "none"}
+                    bgColor="#f5f8f9"
                     placeholder="kendal@gmail.com"
                     {...register("email", {
                       required: "email address is required!",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-28.-]+\.[A-Z]{2,28}$/i,
+                        message: "Invalid email address!",
+                      },
                     })}
                   />
                   {errors.email && (
-                    <FormHelperText textAlign="end" color="red.400">
+                    <FormHelperText textAlign="end" color="#ff9200">
                       {errors.email.message}
                     </FormHelperText>
                   )}
@@ -152,18 +196,28 @@ function Form() {
                 spacing="1.475em"
                 alignItems="center"
               >
-                <FormLabel htmlFor="mobile">Mobile</FormLabel>
+                <Box minW="10em">
+                  <FormLabel
+                    htmlFor="mobile"
+                    textColor={errors.mobile ? "#ff9200" : "black"}
+                  >
+                    Mobile
+                  </FormLabel>
+                </Box>
                 <FormControl>
                   <Input
                     id="mobile"
                     type="text"
+                    variant="filled"
+                    border={errors.mobile ? "1px solid #ff9200" : "none"}
+                    bgColor="#f5f8f9"
                     placeholder="+91 9876543210"
-                    {...register("email", {
+                    {...register("mobile", {
                       required: "mobile number is required!",
                     })}
                   />
                   {errors.mobile && (
-                    <FormHelperText textAlign="end" color="red.400">
+                    <FormHelperText textAlign="end" color="#ff9200">
                       {errors.mobile.message}
                     </FormHelperText>
                   )}
@@ -175,18 +229,28 @@ function Form() {
                 spacing="1.475em"
                 alignItems="center"
               >
-                <FormLabel htmlFor="customerId">Customer ID</FormLabel>
+                <Box minW="10em">
+                  <FormLabel
+                    htmlFor="customerId"
+                    textColor={errors.customerId ? "#ff9200" : "black"}
+                  >
+                    Customer ID
+                  </FormLabel>
+                </Box>
                 <FormControl>
                   <Input
                     id="customerId"
                     type="text"
+                    variant="filled"
+                    border={errors.customerId ? "1px solid #ff9200" : "none"}
+                    bgColor="#f5f8f9"
                     placeholder="576802-ERD0348 45"
                     {...register("customerId", {
                       required: "customer ID is required!",
                     })}
                   />
                   {errors.customerId && (
-                    <FormHelperText textAlign="end" color="red.400">
+                    <FormHelperText textAlign="end" color="#ff9200">
                       {errors.customerId.message}
                     </FormHelperText>
                   )}
@@ -198,18 +262,13 @@ function Form() {
                 spacing="1.475em"
                 alignItems="center"
               >
-                <FormLabel htmlFor="membership">Membership</FormLabel>
+                <Box minW="10em">
+                  <FormLabel htmlFor="customerId">Membership</FormLabel>
+                </Box>
                 <FormControl>
-                  <Input
-                    id="membership"
-                    type="text"
-                    placeholder="kendal@gmail.com"
-                    {...register("membership", {
-                      required: "membership is required!",
-                    })}
-                  />
+                  <MembershipRadioGroup />
                   {errors.membership && (
-                    <FormHelperText textAlign="end" color="red.400">
+                    <FormHelperText textAlign="end" color="#ff9200">
                       {errors.membership.message}
                     </FormHelperText>
                   )}
@@ -221,10 +280,20 @@ function Form() {
                 align="center"
                 justify="center"
               >
-                <Button colorScheme="teal" variant="ghost">
+                <Button
+                  colorScheme="black"
+                  _hover={{ border: "1px solid #49c8a8" }}
+                  variant="ghost"
+                >
                   CANCEL
                 </Button>
-                <Button colorScheme="teal" type="submit" variant="solid">
+                <Button
+                  bgColor="#49c8a8"
+                  color="white"
+                  type="submit"
+                  variant="solid"
+                  _hover={{ bgColor: "#49c8a8" }}
+                >
                   SAVE
                 </Button>
               </Stack>
