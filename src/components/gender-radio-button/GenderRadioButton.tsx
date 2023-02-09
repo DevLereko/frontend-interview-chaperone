@@ -7,8 +7,8 @@ import {
   Text,
   Img,
 } from "@chakra-ui/react";
-import maleIcon from "../../images/venus-symbol.svg";
-import femaleIcon from "../../images/mars-symbol.svg";
+import femaleIcon from "../../images/venus-symbol.svg";
+import maleIcon from "../../images/mars-symbol.svg";
 
 interface CustomRadioProps extends UseRadioProps {
   children: React.ReactNode;
@@ -52,7 +52,11 @@ function MappedGroup() {
         <>
           <Box key={item}>
             <CustomRadio {...getRadioProps({ value: item })}>
-              <Img src={listIcons.maleIcon} width="4" height="4" />
+              {item === "Male" ? (
+                <Img src={listIcons.maleIcon} width="4" height="4" />
+              ) : (
+                <Img src={listIcons.femaleIcon} width="4" height="4" />
+              )}
             </CustomRadio>
           </Box>
           <Text>{item}</Text>
