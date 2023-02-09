@@ -284,6 +284,9 @@ function Form() {
                   colorScheme="black"
                   _hover={{ border: "1px solid #49c8a8" }}
                   variant="ghost"
+                  onClick={() => {
+                    reset();
+                  }}
                 >
                   CANCEL
                 </Button>
