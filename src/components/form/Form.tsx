@@ -263,7 +263,12 @@ function Form() {
                 alignItems="center"
               >
                 <Box minW="10em">
-                  <FormLabel htmlFor="customerId">Membership</FormLabel>
+                  <FormLabel
+                    htmlFor="membership"
+                    textColor={errors.membership ? "#ff9200" : "black"}
+                  >
+                    Membership
+                  </FormLabel>
                 </Box>
                 <FormControl>
                   <MembershipRadioGroup />
