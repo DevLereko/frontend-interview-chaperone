@@ -36,7 +36,7 @@ function CustomRadio(props: CustomRadioProps) {
   );
 }
 
-function MappedGroup() {
+function MappedGenderGroup() {
   const list = ["Male", "Female"];
   const listIcons = { maleIcon, femaleIcon };
   const { getRootProps, getRadioProps } = useRadioGroup({
@@ -68,7 +68,7 @@ function MappedGroup() {
 export default function GenderRadioButton() {
   return (
     <Box>
-      <MappedGroup />
+      <MappedGenderGroup />
     </Box>
   );
 }

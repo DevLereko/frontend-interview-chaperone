@@ -45,7 +45,13 @@ function Form() {
   };
 
   return (
-    <Box w="full" py="0px" pl="28.6em" minH="100vh">
+    <Box
+      w="full"
+      py={{ base: "28.6px", md: "0px" }}
+      pl={{ base: "none", md: "28.6em" }}
+      bgColor={{ base: "#373d40", md: "transparent" }}
+      minH="100vh"
+    >
       <Flex
         direction={{ base: "column", md: "row" }}
         justify="center"
@@ -61,14 +67,14 @@ function Form() {
           w="full"
           pt="3em"
         >
-          <Box px="28" py="1em">
+          <Box px={{ base: "4", md: "28" }} py="1em">
             <form onSubmit={handleSubmit(onSubmit)}>
               <Stack
                 direction={{ base: "column", lg: "row" }}
                 mb="3"
-                spacing={"1.475em"}
+                spacing="1.475em"
                 justifyContent="space-between"
-                alignItems="center"
+                alignItems={{ base: "flex-start", md: "center" }}
               >
                 <Box minW="10em">
                   <FormLabel
@@ -101,7 +107,7 @@ function Form() {
                 direction={{ base: "column", lg: "row" }}
                 mb="3"
                 spacing="1.475em"
-                alignItems="center"
+                alignItems={{ base: "flex-start", md: "center" }}
               >
                 <Box minW="10em">
                   <FormLabel
@@ -124,7 +130,7 @@ function Form() {
                 direction={{ base: "column", lg: "row" }}
                 mb="3"
                 spacing="1.475em"
-                alignItems="center"
+                alignItems={{ base: "flex-start", md: "center" }}
               >
                 <Box minW="10em">
                   <FormLabel
@@ -157,7 +163,7 @@ function Form() {
                 direction={{ base: "column", lg: "row" }}
                 mb="3"
                 spacing="1.475em"
-                alignItems="center"
+                alignItems={{ base: "flex-start", md: "center" }}
               >
                 <Box minW="10em">
                   <FormLabel
@@ -194,7 +200,7 @@ function Form() {
                 direction={{ base: "column", lg: "row" }}
                 mb="3"
                 spacing="1.475em"
-                alignItems="center"
+                alignItems={{ base: "flex-start", md: "center" }}
               >
                 <Box minW="10em">
                   <FormLabel
@@ -227,7 +233,7 @@ function Form() {
                 direction={{ base: "column", lg: "row" }}
                 mb="3"
                 spacing="1.475em"
-                alignItems="center"
+                alignItems={{ base: "flex-start", md: "center" }}
               >
                 <Box minW="10em">
                   <FormLabel
@@ -260,7 +266,7 @@ function Form() {
                 direction={{ base: "column", lg: "row" }}
                 mb="3"
                 spacing="1.475em"
-                alignItems="center"
+                alignItems={{ base: "flex-start", md: "center" }}
               >
                 <Box minW="10em">
                   <FormLabel
@@ -280,15 +286,18 @@ function Form() {
                 </FormControl>
               </Stack>
               <Stack
-                direction="row"
+                direction={{ base: "column", md: "row" }}
                 spacing={4}
                 align="center"
                 justify="center"
+                mt="6"
               >
                 <Button
                   colorScheme="black"
+                  width={{ base: "full", md: "auto" }}
                   _hover={{ border: "1px solid #49c8a8" }}
                   variant="ghost"
+                  bgColor={{ base: "white", md: "transparent" }}
                   onClick={() => {
                     reset();
                   }}
@@ -298,6 +307,7 @@ function Form() {
                 <Button
                   bgColor="#49c8a8"
                   color="white"
+                  width={{ base: "full", md: "auto" }}
                   type="submit"
                   variant="solid"
                   _hover={{ bgColor: "#49c8a8" }}
