@@ -35,7 +35,7 @@ function CustomRadio(props: CustomRadioProps) {
   );
 }
 
-function MappedGroup() {
+function MappedMembershipGroup() {
   const list = ["Classic", "Silver", "Gold"];
   const icon = { card };
   const { getRootProps, getRadioProps } = useRadioGroup({
@@ -63,7 +63,7 @@ function MappedGroup() {
 export default function MembershipRadioGroup() {
   return (
     <Box>
-      <MappedGroup />
+      <MappedMembershipGroup />
     </Box>
   );
 }

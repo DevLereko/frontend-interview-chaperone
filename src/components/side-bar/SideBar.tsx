@@ -1,16 +1,31 @@
-import { Box, Stack, Text, IconButton, Img, Heading } from "@chakra-ui/react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import {
+  Box,
+  Stack,
+  Text,
+  IconButton,
+  Img,
+  Heading,
+  useMediaQuery,
+} from "@chakra-ui/react";
+import {
+  FiChevronDown,
+  FiChevronLeft,
+  FiChevronRight,
+  FiChevronUp,
+} from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import face from "../../images/face.svg";
 
 function SideBar() {
   const navigate = useNavigate();
+  const [isMobile] = useMediaQuery("((max-width: 768px)");
+
   return (
     <Box>
       <Stack
-        pos="fixed"
-        h="100vh"
-        w="28.6em"
+        pos={{ base: "relative", md: "fixed" }}
+        h={{ base: "40em", md: "100vh" }}
+        w={{ base: "100vw", md: "28.6em" }}
         flexDir="column"
         backgroundColor="#ffd300"
         zIndex="popover"
@@ -24,7 +39,7 @@ function SideBar() {
           <Heading textAlign="center" fontSize="2xl">
             Front-end Challenge!
           </Heading>
-          <Text textAlign="center" fontSize="lg" px={20}>
+          <Text textAlign="center" fontSize="lg" px={{ base: 8, md: 20 }}>
             This is the design that you need to code up and impress us.
           </Text>
         </Stack>
@@ -38,7 +53,11 @@ function SideBar() {
                 navigate("/landing-page/content-page");
               }}
             >
-              <FiChevronRight size="xl" color="#ffd300" />
+              {isMobile ? (
+                <FiChevronDown size="xl" color="#ffd300" />
+              ) : (
+                <FiChevronRight size="xl" color="#ffd300" />
+              )}
             </IconButton>
           ) : (
             <IconButton
@@ -49,7 +68,11 @@ function SideBar() {
                 navigate("/landing-page");
               }}
             >
-              <FiChevronLeft size="xl" color="#ffd300" />
+              {isMobile ? (
+                <FiChevronUp size="xl" color="#ffd300" />
+              ) : (
+                <FiChevronLeft size="xl" color="#ffd300" />
+              )}
             </IconButton>
           )}
         </Box>
